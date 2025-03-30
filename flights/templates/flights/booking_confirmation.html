@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Confirmed!</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container confirmation">
+        <h1>Booking Confirmed! ✔</h1>
+        <div class="booking-code">
+            <p>Your booking code is:</p>
+            <h2>{{ booking_code }}</h2>
+            <p>Please save this code to manage your booking.</p>
+        </div>
+        <a href="{% url 'index' %}" class="home-button">Return to Homepage</a>
+    </div>
+</body>
+</html>

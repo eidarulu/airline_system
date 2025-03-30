@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ flight.origin.code }} to {{ flight.destination.code }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ flight.origin.code }} to {{ flight.destination.code }} - {{ flight.duration }} min</h1>
+        <div class="flight-info">
+            <p>Available seats: {{ remaining_seats }}</p>
+            
+            <h2>Passengers:</h2>
+            <ul>
+                {% for booking in booked_passengers %}
+                    <li>{{ booking.passenger.name }}</li>
+                {% empty %}
+                    <li>No passengers booked yet</li>
+                {% endfor %}
+            </ul>
+
+            <div class="actions">
+                <a href="{% url 'book_flight' flight.id %}" class="book-button">Book this Flight</a>
+                <a href="{% url 'index' %}" class="back-button">Back to All Flights</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

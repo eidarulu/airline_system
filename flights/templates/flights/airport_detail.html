@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ airport.code }} Airport</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ airport.code }} - {{ airport.city }}</h1>
+        
+        <div class="airport-flights">
+            <h2>Departures</h2>
+            <ul>
+                {% for flight in departing_flights %}
+                    <li>To {{ flight.destination.code }} - {{ flight.duration }} min</li>
+                {% empty %}
+                    <li>No departing flights</li>
+                {% endfor %}
+            </ul>
+
+            <h2>Arrivals</h2>
+            <ul>
+                {% for flight in arriving_flights %}
+                    <li>From {{ flight.origin.code }} - {{ flight.duration }} min</li>
+                {% empty %}
+                    <li>No arriving flights</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <a href="{% url 'index' %}" class="home-button">Return to Homepage</a>
+    </div>
+</body>
+</html>

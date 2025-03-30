@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Airline Reservation System</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Airline Reservation System</h1>
+        <h2>Available Flights</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Duration</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for flight in flights %}
+                <tr>
+                    <td>{{ flight.origin.code }} ({{ flight.origin.city }})</td>
+                    <td>{{ flight.destination.code }} ({{ flight.destination.city }})</td>
+                    <td>{{ flight.duration }} min</td>
+                    <td>
+                        <a href="{% url 'flight_detail' flight.id %}">View</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="manage-booking">
+            <a href="{% url 'manage_booking' %}">Manage Booking</a>
+        </div>
+    </div>
+</body>
+</html>

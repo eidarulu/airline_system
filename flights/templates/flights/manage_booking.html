@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Booking</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Booking</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="booking_code">Enter Booking Code:</label>
+                <input type="text" id="booking_code" name="booking_code" required>
+            </div>
+            <button type="submit" class="submit-button">Find Booking</button>
+        </form>
+    </div>
+</body>
+</html>
