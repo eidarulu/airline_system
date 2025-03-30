@@ -12,7 +12,9 @@
         <div class="booking-info">
             <p><strong>Passenger:</strong> {{ booking.passenger.name }}</p>
             <p><strong>Email:</strong> {{ booking.passenger.email }}</p>
-            <p><strong>Flight:</strong> {{ booking.flight.origin.code }} → {{ booking.flight.destination.code }}</p>
+            <p>
+                <strong>Flight:</strong> {{ booking.flight.origin.city }} ({{ booking.flight.origin.code }}) → {{ booking.flight.destination.city }} ({{ booking.flight.destination.code }})
+            </p>
             <p><strong>Duration:</strong> {{ booking.flight.duration }} min</p>
             <p><strong>Booking Code:</strong> {{ booking.booking_code }}</p>
         </div>

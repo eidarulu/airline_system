@@ -8,16 +8,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>{{ flight.origin.code }} to {{ flight.destination.code }} - {{ flight.duration }} min</h1>
+        <h1>{{ flight.origin.city }} ({{ flight.origin.code }}) to {{ flight.destination.city }} ({{ flight.destination.code }})</h1>
         <div class="flight-info">
-            <p>Available seats: {{ remaining_seats }}</p>
+            <p><strong>Flight duration:</strong> {{ flight.duration }} min</p>
+            <p><strong>Available seats:</strong> {{ remaining_seats }}</p>
             
-            <h2>Passengers:</h2>
+            <h2>List of passengers:</h2>
             <ul>
                 {% for booking in booked_passengers %}
                     <li>{{ booking.passenger.name }}</li>
                 {% empty %}
-                    <li>No passengers booked yet</li>
+                    <p>No passengers booked yet</p>
                 {% endfor %}
             </ul>
 
