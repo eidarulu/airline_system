@@ -23,7 +23,7 @@
             <h2>Arrivals</h2>
             <ul>
                 {% for flight in arriving_flights %}
-                    <li>From {{ flight.destination.city }} {{ flight.origin.code }} - {{ flight.duration }} min</li>
+                    <li>From {{ flight.destination.city }} ({{ flight.origin.code }}) - {{ flight.duration }} min</li>
                 {% empty %}
                     <li>No arriving flights</li>
                 {% endfor %}
