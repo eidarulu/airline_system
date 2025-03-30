@@ -5,16 +5,10 @@ from django.db import transaction
 import uuid
 
 def index(request):
-    """
-    Display all flights on the index page
-    """
     flights = Flight.objects.all()
     return render(request, 'flights/index.html', {'flights': flights})
 
 def flight_detail(request, flight_id):
-    """
-    Display details of a specific flight
-    """
     flight = get_object_or_404(Flight, id=flight_id)
     booked_passengers = flight.booking_set.all()
     remaining_seats = flight.remaining_seats()
@@ -26,9 +20,6 @@ def flight_detail(request, flight_id):
     })
 
 def book_flight(request, flight_id):
-    """
-    Booking page for a specific flight
-    """
     flight = get_object_or_404(Flight, id=flight_id)
     
     if request.method == 'POST':
@@ -70,9 +61,6 @@ def book_flight(request, flight_id):
     return render(request, 'flights/booking.html', {'flight': flight})
 
 def manage_booking(request):
-    """
-    Manage booking page to check booking details
-    """
     if request.method == 'POST':
         booking_code = request.POST.get('booking_code')
         
@@ -88,9 +76,6 @@ def manage_booking(request):
     return render(request, 'flights/manage_booking.html')
 
 def airport_detail(request, airport_code):
-    """
-    Display details of a specific airport
-    """
     airport = get_object_or_404(Airport, code=airport_code)
     departing_flights = airport.departing_flights.all()
     arriving_flights = airport.arriving_flights.all()

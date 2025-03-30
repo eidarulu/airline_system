@@ -10,7 +10,7 @@ class Airport(models.Model):
 
 class Flight(models.Model):
     origin = models.ForeignKey(
-        Airport, 
+        Airport,
         on_delete=models.CASCADE, 
         related_name='departing_flights'
     )
@@ -26,9 +26,6 @@ class Flight(models.Model):
         return f"{self.origin.code} → {self.destination.code}"
 
     def remaining_seats(self):
-        """
-        Calculate remaining seats based on current bookings
-        """
         return self.capacity - self.booking_set.count()
 
 class Passenger(models.Model):
