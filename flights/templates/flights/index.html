@@ -22,8 +22,16 @@
             <tbody>
                 {% for flight in flights %}
                 <tr>
-                    <td>{{ flight.origin.code }} ({{ flight.origin.city }})</td>
-                    <td>{{ flight.destination.code }} ({{ flight.destination.city }})</td>
+                    <td>
+                        <a href="{% url 'airport_detail' flight.origin.code %}">
+                            {{ flight.origin.code }} ({{ flight.origin.city }})
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'airport_detail' flight.destination.code %}">
+                            {{ flight.destination.code }} ({{ flight.destination.city }})
+                        </a>
+                    </td>
                     <td>{{ flight.duration }} min</td>
                     <td>
                         <a href="{% url 'flight_detail' flight.id %}">View</a>
