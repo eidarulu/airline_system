@@ -32,6 +32,10 @@ h1 {
     margin-bottom: 20px;
 }
 
+.err {
+    color: red;
+}
+
 .main_container_header {
     text-align: center;
 }
