@@ -47,5 +47,5 @@ The app stores information about airports, flights, passengers, and bookings. Us
 ### Error Note - error.html
 ![Error Note](https://github.com/user-attachments/assets/eb2cb8e7-d072-46c9-9f51-ed65a3c3eac0)
 
-### Booking Details - booking_details
+### Booking Details - booking_details.html
 ![Manage Booking](https://github.com/user-attachments/assets/2664183c-e7cd-489c-9a46-dccf582d7031)
